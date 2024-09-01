@@ -1,0 +1,44 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alzheimer's Prediction</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Alzheimer's Data Prediction</h1>
+        <form method="POST" action="/predict">
+            <div class="form-group">
+                <label for="YearStart">Year Start:</label>
+                <input type="number" class="form-control" id="YearStart" name="YearStart" required>
+            </div>
+            <div class="form-group">
+                <label for="LocationID">Location ID:</label>
+                <input type="text" class="form-control" id="LocationID" name="LocationID" required>
+            </div>
+            <div class="form-group">
+                <label for="ClassID">Class ID:</label>
+                <input type="text" class="form-control" id="ClassID" name="ClassID" required>
+            </div>
+            <div class="form-group">
+                <label for="TopicID">Topic ID:</label>
+                <input type="text" class="form-control" id="TopicID" name="TopicID" required>
+            </div>
+            <div class="form-group">
+                <label for="QuestionID">Question ID:</label>
+                <input type="text" class="form-control" id="QuestionID" name="QuestionID" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Predict</button>
+        </form>
+
+        {% if prediction %}
+        <div class="mt-4">
+            <h4>Prediction Result: {{ prediction }}</h4>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
